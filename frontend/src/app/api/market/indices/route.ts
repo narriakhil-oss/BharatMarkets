@@ -42,10 +42,8 @@ export async function GET() {
     })
   );
 
-  const data = results
-    .filter((r): r is PromiseFulfilledResult<typeof INDICES[0] & ReturnType<typeof fetchChart> extends Promise<infer T> ? T : never> => r.status === "fulfilled")
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .map((r) => (r as any).value);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const data = results.filter((r) => r.status === "fulfilled").map((r) => (r as any).value);
 
   if (data.length === 0) {
     return NextResponse.json({ error: "All index fetches failed" }, { status: 502 });
