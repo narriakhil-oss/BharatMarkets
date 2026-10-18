@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* BharatMarkets specialized trading tokens */
+  --color-bullish: var(--bullish);
+  --color-bearish: var(--bearish);
+  --color-delayed: var(--delayed);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  --background: #08090e;
+  --foreground: #f4f4f6;
+  --card: #0f121d;
+  --card-foreground: #f4f4f6;
+  --popover: #121624;
+  --popover-foreground: #f4f4f6;
+  --primary: #00dc82;
+  --primary-foreground: #04140c;
+  --secondary: #171b29;
+  --secondary-foreground: #e2e8f0;
+  --muted: #151824;
+  --muted-foreground: #94a3b8;
+  --accent: #1e2436;
+  --accent-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #00dc82;
+  --radius: 0.625rem;
+
+  --bullish: #00dc82;
+  --bearish: #ef4444;
+  --delayed: #f59e0b;
+}
+
+.dark {
+  --background: #08090e;
+  --foreground: #f4f4f6;
+  --card: #0f121d;
+  --card-foreground: #f4f4f6;
+  --popover: #121624;
+  --popover-foreground: #f4f4f6;
+  --primary: #00dc82;
+  --primary-foreground: #04140c;
+  --secondary: #171b29;
+  --secondary-foreground: #e2e8f0;
+  --muted: #151824;
+  --muted-foreground: #94a3b8;
+  --accent: #1e2436;
+  --accent-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #00dc82;
+
+  --bullish: #00dc82;
+  --bearish: #ef4444;
+  --delayed: #f59e0b;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "rlig" 1, "calt" 1, "cv02" 1, "cv03" 1, "cv04" 1;
+    overflow-x: hidden;
+  }
+}
+
+/* Trading terminal custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08090e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 220, 130, 0.3);
+}
+
+/* Subtle glowing grid background effect */
+.terminal-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(15, 18, 29, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
